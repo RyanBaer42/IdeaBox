@@ -1,0 +1,40 @@
+
+body{
+    display: flex;
+}
+
+.sidenav{
+    height: 100vh;
+    width: 20vw;
+    background-color: #1F1F3D;
+}
+
+main{
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-form-section{
+    height: 40%;
+    display: flex;
+    justify-content: center;
+    background-color: #A9AAD2;
+    border-left: 2px solid #EAEAF4;
+}
+
+.new-ideas-section{
+    height: 60%;
+    background-color: #EAEAF4;
+}
+
+.main-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.new-ideas-card{
+    border: 1px solid #1F1F3D;
+}
+
