@@ -1,21 +1,21 @@
 
-body{
+body {
     display: flex;
 }
 
-.sidenav{
+.sidenav {
     height: 100vh;
-    width: 20vw;
+    width: 25vw;
     background-color: #1F1F3D;
 }
 
-main{
-    width: 80vw;
+main {
+    width: 75vw;
     display: flex;
     flex-direction: column;
 }
 
-.main-form-section{
+.main-form-section {
     height: 40%;
     display: flex;
     justify-content: center;
@@ -23,18 +23,61 @@ main{
     border-left: 2px solid #EAEAF4;
 }
 
-.new-ideas-section{
-    height: 60%;
+.new-ideas-section {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
     background-color: #EAEAF4;
-}
+    height: 60%;
+}    
 
-.main-form{
+.main-form {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
 }
 
-.new-ideas-card{
+.new-ideas-card {
     border: 1px solid #1F1F3D;
+    height: 25vh;
+    width: 15vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.toolbar-images {
+    width: 15vw;
+    height: 3vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0;
+}
+
+.small-images {
+    height: 3vh;
+    width: 3vw;
+    margin: 0;
+    display: flex;
+    /* flex-direction: row; */
+    justify-content: space-between;
+}
+
+.comment-section {
+    margin: 0;
+    padding-left: ;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+#comment-image {
+    padding-top: 5%;
+}
+
+.idea-title {
+    
 }
 
