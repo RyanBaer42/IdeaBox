@@ -4,169 +4,169 @@ body {
     font-family: "Open Sans", "Light";
 }
 
+/*----------- Side Bar Section ------------*/
+
 .sidenav {
-    height: 100vh;
-    width: 25vw;
-    background-color: #1F1F3D;
-    padding-left: 2%;
+  background-color: #1F1F3D;
+  height: 100vh;
+  padding-left: 2%;
+  width: 25vw;
 }
 
-main {
-    width: 75vw;
-    display: flex;
-    flex-direction: column;
-}
-
-.main-form-section {
-    height: 40%;
-    display: flex;
-    justify-content: center;
-    background-color: #A9AAD2;
-    border-left: 2px solid #EAEAF4;
-}
-
-.search-ideas-line {
-    display: flex;
-    flex-direction: row;
-    height: 5vh;
-    width: 100%;
-    border-radius: 3px;
-    border: 1px solid #5356A4;
-    border-radius: 3px;
-}
-
-.search-icon {
-    background-color: #353567;
-    height: 3vh;
-    width: 2vw;
-    padding: 1.5%;
-}
-
-.new-ideas-section {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    background-color: #EAEAF4;
-    height: 60%;
-    
-}    
-
-.main-form {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    width: 60%;
-    justify-content: space-evenly;
-}
-
-.new-ideas-card {
-    border: 1px solid #1F1F3D;
-    height: 25vh;
-    width: 15vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-
-.toolbar-images {
-    width: 15vw;
-    height: 3vh;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin: 0;
-    background-color: #1F1F3D;
-}
-
-.small-images {
-    height: 3vh;
-    width: 3vw;
-    margin: 0;
-    display: flex;
-    /* flex-direction: row; */
-    justify-content: space-between;
-}
-
-.comment-section {
-    margin: 0;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    background-color: #5356A4;
-}
-
-#comment-image {
-    padding-top: 3%;
-}
-
-.comment-option {
-    margin-top: 4%;
-    margin-bottom: 4%;
-    color: #E9E9F3;
-}
-
-.idea-title-body {
-    height: 17vh;
-    padding-left: 7%;
-    background-color: #FFFFFF;
-}
+/*Do we need to style h2? Can we just add it to h4?*/
 
 .ideabox-title {
-    color: #E9E9F3;
-}
-
-h4 {
-    color: #BFBFDD;
-}
-
-.show-starred-button {
-    color: #E9E9F3;
-    background-color: #5356A4;
-    padding: 3%;
-    margin-bottom: 7%;
-    margin-top: 5%;
-    border: 1px solid #353567;
-    width: 90%;
-    font-size: 22px;
-    font-weight: bold;
+  color: #E9E9F3;
 }
 
 .line {
-    width: 100%;
-    border-bottom: 1px solid #353567;
+  border-bottom: 1px solid #353567;
+  width: 100%;
+}
+
+h4 {
+  color: #BFBFDD;
+}
+
+.show-starred-button {
+  background-color: #5356A4;
+  border: 1px solid #353567;
+  color: #E9E9F3;
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 7%;
+  margin-top: 5%;
+  padding: 3%;
+  width: 90%;
+}
+
+/*----------- Idea Input Section -----------*/
+
+main {
+  display: flex;
+  flex-direction: column;
+  width: 75vw;
+}
+
+.main-form {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-evenly;
+  width: 60%;
 }
 
 .input-title {
-    border: 2px solid #5356A4;
-    border-radius: 3px;
-    height: 5vh;
+  border: 2px solid #5356A4;
+  border-radius: 3px;
+  height: 5vh;
 }
 
 .input-body {
-    border: 2px solid #5356A4;
-    border-radius: 3px;
-    height: 10vh;
+  border: 2px solid #5356A4;
+  border-radius: 3px;
+  height: 10vh;
 }
 
 .save-button {
-    border: 1px solid #5356A4;
-    border-radius: 3px;
-    background-color: #1F1F3D;
-    border-color: #5356A4;
-    color: #E9E9F3;
-    font-weight: bold;
-    height: 5vh;
+  border: 1px solid #5356A4;
+  border-radius: 3px;
+  background-color: #1F1F3D;
+  border-color: #5356A4;
+  color: #E9E9F3;
+  font-weight: bold;
+  height: 5vh;
+}
+
+.search-ideas-line {
+  border: 1px solid #5356A4;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: row;
+  height: 5vh;
+  width: 100%;
+}
+
+.search-icon {
+  background-color: #353567;
+  height: 3vh;
+  padding: 1.5%;
+  width: 2vw;
 }
 
 .input-search {
-    width: 100%;
+  width: 100%;
 }
 
+/*----------- Idea Card Section ------------*/
+
+.new-ideas-section {
+  background-color: #EAEAF4;
+  display: flex;
+  flex-direction: column;
+  height: 60%;
+  justify-content: center;
+} 
+
 .card-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 20px;
-    padding: 20px;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 20px;
 }
+
+.new-ideas-card {
+  border: 1px solid #1F1F3D;
+  display: flex;
+  flex-direction: column;
+  height: 25vh;
+  justify-content: space-between;
+  width: 15vw;
+}
+
+.toolbar-images {
+  background-color: #1F1F3D;
+  display: flex;
+  flex-direction: row;
+  height: 3vh;
+  justify-content: space-between;
+  margin: 0;
+  width: 15vw;
+}
+
+.small-images {
+  display: flex;
+  height: 3vh;
+  justify-content: space-between;
+  margin: 0;
+  width: 3vw;
+}
+
+.idea-title-body {
+  background-color: #FFFFFF;
+  height: 17vh;
+  padding-left: 7%;
+}
+
+.comment-section {
+  background-color: #5356A4;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin: 0;
+}
+
+#comment-image {
+  padding-top: 3%;
+}
+
+.comment-option {
+  color: #E9E9F3;
+  margin-top: 4%;
+  margin-bottom: 4%;
+}
+
+
+
+
 
