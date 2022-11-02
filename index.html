@@ -4,15 +4,17 @@
     <html lang="en" dir="ltr">
     <head>
         <link rel="stylesheet" href="./styles.css">
-        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
         <title>IdeaBox</title>
     </head>
     <body>
-        <section class="sidenav">
+        <aside class="sidenav">
             <h2 class="ideabox-title">IdeaBox</h2>
+            <div class="line"></div>
             <h4>Filter Starred Ideas</h4>
             <Button class="show-starred-button">Show Starred Ideas</Button>
-        </section>
+            <div class="line"></div>
+        </aside>
         <main>
             <section class="main-form-section">
                 <form class="main-form">
@@ -22,9 +24,9 @@
                     <input type="text" name="body" id="body">
                     <Button class="save-button">Save</Button>
                     <div class="search-ideas-line">
-                        <img class="search-icon" src="" alt="Search Icon">
-                        <label for="search-ideas-input-line">Search Ideas</label>
-                        <input type="text" name="search-ideas-input-line" id="search-ideas-input-line">
+                        <img class="search-icon" src="./assets/search.svg">
+                        <label class="search-line"></label>
+                        <input type="text" id="search-ideas-input-line" placeholder="Search Ideas">
                     </div>
                 </form>
             </section>
