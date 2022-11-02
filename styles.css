@@ -30,12 +30,16 @@ main {
     flex-direction: row;
     height: 5vh;
     width: 100%;
+    border-radius: 3px;
+    border: 1px solid #5356A4;
+    border-radius: 3px;
 }
 
 .search-icon {
     background-color: #353567;
-    height: 5vh;
-    width: 5vw;
+    height: 3vh;
+    width: 2vw;
+    padding: 1.5%;
 }
 
 .new-ideas-section {
@@ -44,6 +48,7 @@ main {
     flex-direction: column;
     background-color: #EAEAF4;
     height: 60%;
+    
 }    
 
 .main-form {
@@ -71,6 +76,7 @@ main {
     flex-direction: row;
     justify-content: space-between;
     margin: 0;
+    background-color: #1F1F3D;
 }
 
 .small-images {
@@ -84,19 +90,26 @@ main {
 
 .comment-section {
     margin: 0;
-    padding-left: ;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
+    background-color: #5356A4;
 }
 
 #comment-image {
-    padding-top: 5%;
+    padding-top: 3%;
+}
+
+.comment-option {
+    margin-top: 4%;
+    margin-bottom: 4%;
+    color: #E9E9F3;
 }
 
 .idea-title-body {
     height: 17vh;
     padding-left: 7%;
+    background-color: #FFFFFF;
 }
 
 .ideabox-title {
@@ -115,7 +128,7 @@ h4 {
     margin-top: 5%;
     border: 1px solid #353567;
     width: 90%;
-    font-size: 16px;
+    font-size: 22px;
     font-weight: bold;
 }
 
@@ -137,7 +150,7 @@ h4 {
 }
 
 .save-button {
-    border: 2px solid #5356A4;
+    border: 1px solid #5356A4;
     border-radius: 3px;
     background-color: #1F1F3D;
     border-color: #5356A4;
@@ -149,3 +162,11 @@ h4 {
 .input-search {
     width: 100%;
 }
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+    padding: 20px;
+}
+
