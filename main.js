@@ -8,6 +8,7 @@ var deleteImage = document.querySelector('#delete-img');
 var titleInput = document.querySelector('.input-title');
 var bodyInput = document.querySelector('.input-body');
 var cardGrid = document.querySelector('.card-grid');
+var saveButton = document.querySelector('.save-button');
 
 
 
@@ -18,7 +19,7 @@ var cardGrid = document.querySelector('.card-grid');
 
 //---------------------------------> Event Listeners -------------------------------->
 
-
+saveButton.addEventListener('click', displayUserIdea)
 
 
 
@@ -31,10 +32,13 @@ function createUserIdea() {
   var userBody = bodyInput.value;
   newIdea = new Idea(userTitle, userBody);
   savedIdeas.push(newIdea);
-}
+  console.log(savedIdeas)
+  }
 
-function displayUserIdea() {
+function displayUserIdea(event) {
+  event.preventDefault();
   createUserIdea()
+  cardGrid.innerHTML = "";
   for (var i = 0; i < savedIdeas.length; i++) {
   cardGrid.innerHTML += `<section class="new-ideas-card">
   <div class="toolbar-images">
@@ -52,7 +56,6 @@ function displayUserIdea() {
 </section>`
   }
 }
-
 
 
 
