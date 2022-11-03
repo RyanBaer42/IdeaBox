@@ -95,8 +95,6 @@ main {
   
 }
 
-
-
 .search-ideas-line {
   border: 1px solid #5356A4;
   border-radius: 3px;
@@ -114,9 +112,8 @@ main {
   background-position: center;
   height: 5vh;
   width: 2.5vw;
-  
-
 }
+
 .search-icon {
   background-color: #353567;
   height: 2.75vh;
