@@ -162,6 +162,10 @@ main {
   width: 15vw;
 }
 
+.delete:hover {
+  content: url('./assets/delete-active.svg');
+}
+
 .small-images {
   cursor: pointer;
   display: flex;
