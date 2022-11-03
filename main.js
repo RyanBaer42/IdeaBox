@@ -30,7 +30,7 @@ titleInput.addEventListener('keyup', disableSaveButton);
 bodyInput.addEventListener('keyup', disableSaveButton);
 cardGrid.addEventListener('click', function(event) {
   deleteCard(event);
-  // displayUserIdea();
+  favoriteIdea();
 });
 
 
@@ -46,8 +46,7 @@ function createUserIdea() {
   var userBody = bodyInput.value;
   newIdea = new Idea(userTitle, userBody);
   savedIdeas.push(newIdea);
-  // console.log(savedIdeas);
-  };
+};
 
 function displayUserIdea(event) {
   cardGrid.innerHTML = "";
@@ -56,7 +55,7 @@ function displayUserIdea(event) {
   <section class="new-ideas-card" id="${savedIdeas[i].id}">
     <div class="toolbar-images">
       <img class="small-images" src="./assets/star.svg" id="star-img">
-      <img class="small-images" src="./assets/delete.svg" id="delete-img">
+      <img class="small-images delete" src="./assets/delete.svg" id="delete-img">
     </div>
     <div class="idea-title-body">
       <h2 class="idea-title">${savedIdeas[i].title}</h2>
@@ -83,20 +82,38 @@ function disableSaveButton() {
   } else if (titleInput.value && bodyInput.value) {
     saveButton.disabled = false
   }
-}
+};
 
 function deleteCard(event) {
-  if (event.target.id === 'delete-img'){
-  var ideaID = Number(event.target.parentNode.parentNode.id)
-  for (var i = 0; i < savedIdeas.length; i++){
-    if (savedIdeas[i].id === ideaID){
-      savedIdeas.splice(i, 1);
+  var deleteID = Number(event.target.parentNode.parentNode.id)
+    if (event.target.id === 'delete-img'){
+      for (var i = 0; i < savedIdeas.length; i++){
+        if (savedIdeas[i].id === deleteID){
+          savedIdeas.splice(i, 1);
+        }
       }
     }
-  } displayUserIdea();
+  displayUserIdea();
+};
+
+function favoriteIdea() {
+  var starID = Number(event.target.parentNode.parentNode.id);
+  console.log("1", starID);
+  if (event.target.id === 'star-img')
+    for (var i = 0; i < savedIdeas.length; i++){
+      console.log(savedIdeas);
+      if (savedIdeas[i].id === starID){
+      console.log("2", savedIdeas);
+        savedIdeas[i].updateIdea();
+      console.log("3", savedIdeas)
+        if (event.target.id === 'star-img' && event.target.src === "./assets/star.svg") {
+        event.target.src = "./assets/star-active.svg"
+      } else if (event.target.id === 'star-img' && event.target.src === "./assets/star-active.svg") {
+        event.target.src = "./assets/star.svg"
+      }
+    }
+  }
 }
-
-
 //--------------------------------> Data Model Functions ---------------------------->
 
 
