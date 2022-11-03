@@ -1,6 +1,7 @@
 var savedIdeas = [];
 var newIdea = new Idea();
 
+
 //--------------------------------> Query Selectors -------------------------------->
 
 var starImage = document.querySelector('#star-img');
@@ -9,6 +10,7 @@ var titleInput = document.querySelector('.input-title');
 var bodyInput = document.querySelector('.input-body');
 var cardGrid = document.querySelector('.card-grid');
 var saveButton = document.querySelector('.save-button');
+saveButton.disabled = true;
 
 
 
@@ -19,7 +21,11 @@ var saveButton = document.querySelector('.save-button');
 
 //---------------------------------> Event Listeners -------------------------------->
 
-saveButton.addEventListener('click', displayUserIdea)
+saveButton.addEventListener('click', displayUserIdea);
+titleInput.addEventListener('keyup', disableSaveButton);
+bodyInput.addEventListener('keyup', disableSaveButton);
+
+
 
 
 
@@ -33,7 +39,7 @@ function createUserIdea() {
   newIdea = new Idea(userTitle, userBody);
   savedIdeas.push(newIdea);
   console.log(savedIdeas)
-  }
+  };
 
 function displayUserIdea(event) {
   event.preventDefault();
@@ -55,8 +61,21 @@ function displayUserIdea(event) {
   </div>
 </section>`
   }
-}
+  clearForm();
+};
 
+function clearForm() {
+  titleInput.value = "";
+  bodyInput.value = "";
+};
+
+function disableSaveButton() {
+  if (titleInput.value === '' && bodyInput.value === '') {
+    saveButton.disabled = true
+  } else if (titleInput.value && bodyInput.value) {
+    saveButton.disabled = false
+  }
+}
 
 
 //--------------------------------> Data Model Functions ---------------------------->
