@@ -21,9 +21,16 @@ saveButton.disabled = true;
 
 //---------------------------------> Event Listeners -------------------------------->
 
-saveButton.addEventListener('click', displayUserIdea);
+saveButton.addEventListener('click', function(event) {
+  event.preventDefault();
+  displayUserIdea();
+});
 titleInput.addEventListener('keyup', disableSaveButton);
 bodyInput.addEventListener('keyup', disableSaveButton);
+cardGrid.addEventListener('click', function() {
+  deleteCard();
+  // displayUserIdea();
+});
 
 
 
@@ -42,11 +49,11 @@ function createUserIdea() {
   };
 
 function displayUserIdea(event) {
-  event.preventDefault();
+  // event.preventDefault();
   createUserIdea()
   cardGrid.innerHTML = "";
   for (var i = 0; i < savedIdeas.length; i++) {
-  cardGrid.innerHTML += `<section class="new-ideas-card">
+  cardGrid.innerHTML += `<section class="new-ideas-card" id="${savedIdeas[i].id}">
   <div class="toolbar-images">
     <img class="small-images" src="./assets/star.svg" id="star-img">
     <img class="small-images" src="./assets/delete.svg" id="delete-img">
@@ -78,6 +85,17 @@ function disableSaveButton() {
   }
 }
 
+function deleteCard() {
+  var ideaID = event.target.parentNode.id
+  console.log(ideaID);
+  for (var i = 0; i < savedIdeas.length; i++){
+    if (savedIdeas[i].id.toString() === ideaID){
+      savedIdeas[i].splice(i, 1);
+      console.log(savedIdeas);
+      return savedIdeas;
+    }
+  }
+}
 
 //--------------------------------> Data Model Functions ---------------------------->
 
