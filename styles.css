@@ -2,6 +2,7 @@
 body {
     display: flex;
     font-family: "Open Sans", "Light";
+    margin: 0;
 }
 
 /*----------- Side Bar Section ------------*/
@@ -56,10 +57,19 @@ main {
   width: 60%;
 }
 
+.main-form-section {
+  height: 40%;
+  display: flex;
+  justify-content: center;
+  background-color: #A9AAD2;
+  border-left: 2px solid #EAEAF4;
+}
+
 .input-title {
   border: 2px solid #5356A4;
   border-radius: 3px;
   height: 5vh;
+  padding-left: 5%;
 }
 
 .input-body {
@@ -74,8 +84,15 @@ main {
   background-color: #1F1F3D;
   border-color: #5356A4;
   color: #E9E9F3;
+  cursor: pointer;
   font-weight: bold;
   height: 5vh;
+}
+
+.save-button:disabled {
+  background-color: #5356A4;
+  cursor: not-allowed;
+  
 }
 
 .search-ideas-line {
@@ -87,9 +104,19 @@ main {
   width: 100%;
 }
 
+.icon-box {
+  background-image: url("./assets/search.svg");
+  background-size: 100%;
+  background-color: #353567;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 5vh;
+  width: 2.5vw;
+}
+
 .search-icon {
   background-color: #353567;
-  height: 3vh;
+  height: 2.75vh;
   padding: 1.5%;
   width: 2vw;
 }
