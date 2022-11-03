@@ -92,7 +92,7 @@ main {
 .save-button:disabled {
   background-color: #5356A4;
   cursor: not-allowed;
-  
+
 }
 
 .search-ideas-line {
@@ -133,7 +133,7 @@ main {
   flex-direction: column;
   height: 60%;
   justify-content: center;
-} 
+}
 
 .card-grid {
   display: grid;
@@ -144,6 +144,7 @@ main {
 
 .new-ideas-card {
   border: 1px solid #1F1F3D;
+  color: #1F1F3D;
   display: flex;
   flex-direction: column;
   height: 25vh;
@@ -162,6 +163,7 @@ main {
 }
 
 .small-images {
+  cursor: pointer;
   display: flex;
   height: 3vh;
   justify-content: space-between;
@@ -192,8 +194,3 @@ main {
   margin-top: 4%;
   margin-bottom: 4%;
 }
-
-
-
-
-
