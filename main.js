@@ -48,7 +48,7 @@ function displayUserIdea(event) {
   for (var i = 0; i < savedIdeas.length; i++) {
   cardGrid.innerHTML += `<section class="new-ideas-card">
   <div class="toolbar-images">
-    <img class="small-images" src="./assets/star.svg" id="star-img"> 
+    <img class="small-images" src="./assets/star.svg" id="star-img">
     <img class="small-images" src="./assets/delete.svg" id="delete-img">
   </div>
   <div class="idea-title-body">
@@ -62,6 +62,7 @@ function displayUserIdea(event) {
 </section>`
   }
   clearForm();
+  saveButton.disabled = true;
 };
 
 function clearForm() {
