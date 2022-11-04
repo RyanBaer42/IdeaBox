@@ -1,6 +1,7 @@
 var savedIdeas = [];
 var favoriteIdeas = [];
 var newIdea = new Idea();
+var showState = "all";
 
 
 //--------------------------------> Query Selectors -------------------------------->
@@ -13,6 +14,7 @@ var cardGrid = document.querySelector('.card-grid');
 var saveButton = document.querySelector('.save-button');
 saveButton.disabled = true;
 var showStarredIdeasButton = document.querySelector('.show-starred-button')
+var searchBar = document.querySelector('.input-search')
 
 
 
@@ -22,14 +24,14 @@ var showStarredIdeasButton = document.querySelector('.show-starred-button')
 
 //---------------------------------> Event Listeners -------------------------------->
 
-saveButton.addEventListener('click', function(event) {
+saveButton.addEventListener('click', function() {
   event.preventDefault();
   createUserIdea();
   displayUserIdea();
 });
 titleInput.addEventListener('keyup', disableSaveButton);
 bodyInput.addEventListener('keyup', disableSaveButton);
-cardGrid.addEventListener('click', function(event) {
+cardGrid.addEventListener('click', function() {
   if (event.target.id === 'delete-img') {
     deleteCard(event);
   } else if (event.target.id === 'star-img') {
@@ -39,13 +41,22 @@ cardGrid.addEventListener('click', function(event) {
 showStarredIdeasButton.addEventListener('click', function(event){
   if(event.target.innerText === "Show Starred Ideas"){
     event.target.innerText = "Show All Ideas"
-    displayFavorites(event)
+    showState = "favorites"
+    displayFavorites()
   } else if(event.target.innerText === "Show All Ideas") {
     event.target.innerText = "Show Starred Ideas"
+    showState = "all"
     showIdeas(savedIdeas)
   }
-})
+});
+searchBar.addEventListener('keyup', function(){
+  if(showState === "all"){
+    filterIdeas(savedIdeas);
+  } else {
+    filterIdeas(favoriteIdeas)
+  }
 
+})
 
 
 
@@ -60,7 +71,7 @@ function createUserIdea() {
   savedIdeas.push(newIdea);
 };
 
-function displayUserIdea(event) {
+function displayUserIdea() {
   showIdeas(savedIdeas)
   clearForm();
   saveButton.disabled = true;
@@ -79,7 +90,7 @@ function disableSaveButton() {
   }
 };
 
-function deleteCard(event) {
+function deleteCard() {
   var deleteID = Number(event.target.parentNode.parentNode.id)
     for (var i = 0; i < savedIdeas.length; i++){
       if (savedIdeas[i].id === deleteID) {
@@ -126,13 +137,30 @@ function showIdeas(array){
   }
 }
 
-function displayFavorites(event){
-  favoriteIdeas = savedIdeas.filter(singleIdea => {
-    if(singleIdea.starred){
+function displayFavorites(){
+  // favoriteIdeas = savedIdeas.filter(singleIdea => {
+  //   if(singleIdea.starred){
+  //     return singleIdea
+  //   }
+  // })
+  // favoriteIdeas = []
+  for (var i =0;i<savedIdeas.length;i++){
+    if(savedIdeas[i].starred){
+      favoriteIdeas.push(savedIdeas[i])
+    }
+  }
+  return showIdeas(favoriteIdeas)
+}
+
+function filterIdeas(array){
+  var filteredIdeas = array.filter(singleIdea => {
+    var bodyText = singleIdea.body.toLowerCase()
+    var titleText = singleIdea.title.toLowerCase()
+    if(bodyText.includes(searchBar.value.toLowerCase()) || titleText.includes(searchBar.value.toLowerCase())){
       return singleIdea
     }
   })
-  return showIdeas(favoriteIdeas)
+  return showIdeas(filteredIdeas)
 }
 
 //--------------------------------> Data Model Functions ---------------------------->
