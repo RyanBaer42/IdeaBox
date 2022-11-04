@@ -21,9 +21,20 @@ saveButton.disabled = true;
 
 //---------------------------------> Event Listeners -------------------------------->
 
-saveButton.addEventListener('click', displayUserIdea);
+saveButton.addEventListener('click', function(event) {
+  event.preventDefault();
+  createUserIdea();
+  displayUserIdea();
+});
 titleInput.addEventListener('keyup', disableSaveButton);
 bodyInput.addEventListener('keyup', disableSaveButton);
+cardGrid.addEventListener('click', function(event) {
+  if (event.target.id === 'delete-img') {
+    deleteCard(event);
+  } else if (event.target.id === 'star-img') {
+    favoriteIdea();
+  }
+});
 
 
 
@@ -38,28 +49,26 @@ function createUserIdea() {
   var userBody = bodyInput.value;
   newIdea = new Idea(userTitle, userBody);
   savedIdeas.push(newIdea);
-  console.log(savedIdeas)
-  };
+};
 
 function displayUserIdea(event) {
-  event.preventDefault();
-  createUserIdea()
   cardGrid.innerHTML = "";
   for (var i = 0; i < savedIdeas.length; i++) {
-  cardGrid.innerHTML += `<section class="new-ideas-card">
-  <div class="toolbar-images">
-    <img class="small-images" src="./assets/star.svg" id="star-img">
-    <img class="small-images" src="./assets/delete.svg" id="delete-img">
-  </div>
-  <div class="idea-title-body">
-    <h2 class="idea-title">${savedIdeas[i].title}</h2>
-    <p class="idea-body">${savedIdeas[i].body}</p>
-  </div>
-  <div class="comment-section">
-    <img id="comment-image" class="small-images" src="./assets/comment.svg">
-    <p class="comment-option">Comment</p>
-  </div>
-</section>`
+  cardGrid.innerHTML += `
+  <section class="new-ideas-card" id="${savedIdeas[i].id}">
+    <div class="toolbar-images">
+      <img class="small-images" src="${starred(i)}" id="star-img">
+      <img class="small-images delete" src="./assets/delete.svg" id="delete-img">
+    </div>
+    <div class="idea-title-body">
+      <h2 class="idea-title">${savedIdeas[i].title}</h2>
+      <p class="idea-body">${savedIdeas[i].body}</p>
+    </div>
+    <div class="comment-section">
+      <img id="comment-image" class="small-images" src="./assets/comment.svg">
+      <p class="comment-option">Comment</p>
+    </div>
+  </section>`
   }
   clearForm();
   saveButton.disabled = true;
@@ -76,9 +85,33 @@ function disableSaveButton() {
   } else if (titleInput.value && bodyInput.value) {
     saveButton.disabled = false
   }
-}
+};
 
+function deleteCard(event) {
+  var deleteID = Number(event.target.parentNode.parentNode.id)
+    for (var i = 0; i < savedIdeas.length; i++){
+      if (savedIdeas[i].id === deleteID) {
+          savedIdeas.splice(i, 1);
+        }
+      }
+  displayUserIdea();
+};
 
+function favoriteIdea() {
+  var starID = Number(event.target.parentNode.parentNode.id);
+    for (var i = 0; i < savedIdeas.length; i++){
+      if (savedIdeas[i].id === starID) {
+        savedIdeas[i].updateIdea();
+    }
+  } displayUserIdea();
+};
+
+function starred(index) {
+  if (savedIdeas[index].starred) {
+    return "./assets/star-active.svg"
+  }
+  return "./assets/star.svg"
+};
 //--------------------------------> Data Model Functions ---------------------------->
 
 
