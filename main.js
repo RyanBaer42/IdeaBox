@@ -1,4 +1,5 @@
 var savedIdeas = [];
+var favoriteIdeas = [];
 var newIdea = new Idea();
 
 
@@ -11,7 +12,7 @@ var bodyInput = document.querySelector('.input-body');
 var cardGrid = document.querySelector('.card-grid');
 var saveButton = document.querySelector('.save-button');
 saveButton.disabled = true;
-
+var showStarredIdeasButton = document.querySelector('.show-starred-button')
 
 
 
@@ -35,7 +36,15 @@ cardGrid.addEventListener('click', function(event) {
     favoriteIdea();
   }
 });
-
+showStarredIdeasButton.addEventListener('click', function(event){
+  if(event.target.innerText === "Show Starred Ideas"){
+    event.target.innerText = "Show All Ideas"
+    displayFavorites(event)
+  } else if(event.target.innerText === "Show All Ideas") {
+    event.target.innerText = "Show Starred Ideas"
+    showIdeas(savedIdeas)
+  }
+})
 
 
 
@@ -52,24 +61,7 @@ function createUserIdea() {
 };
 
 function displayUserIdea(event) {
-  cardGrid.innerHTML = "";
-  for (var i = 0; i < savedIdeas.length; i++) {
-  cardGrid.innerHTML += `
-  <section class="new-ideas-card" id="${savedIdeas[i].id}">
-    <div class="toolbar-images">
-      <img class="small-images" src="${starred(i)}" id="star-img">
-      <img class="small-images delete" src="./assets/delete.svg" id="delete-img">
-    </div>
-    <div class="idea-title-body">
-      <h2 class="idea-title">${savedIdeas[i].title}</h2>
-      <p class="idea-body">${savedIdeas[i].body}</p>
-    </div>
-    <div class="comment-section">
-      <img id="comment-image" class="small-images" src="./assets/comment.svg">
-      <p class="comment-option">Comment</p>
-    </div>
-  </section>`
-  }
+  showIdeas(savedIdeas)
   clearForm();
   saveButton.disabled = true;
 };
@@ -106,12 +98,43 @@ function favoriteIdea() {
   } displayUserIdea();
 };
 
-function starred(index) {
-  if (savedIdeas[index].starred) {
+function starred(array, index) {
+  if (array[index].starred) {
     return "./assets/star-active.svg"
   }
   return "./assets/star.svg"
 };
+
+function showIdeas(array){
+  cardGrid.innerHTML = "";
+  for (var i = 0; i < array.length; i++) {
+  cardGrid.innerHTML += `
+  <section class="new-ideas-card" id="${array[i].id}">
+    <div class="toolbar-images">
+      <img class="small-images" src="${starred(array, i)}" id="star-img">
+      <img class="small-images delete" src="./assets/delete.svg" id="delete-img">
+    </div>
+    <div class="idea-title-body">
+      <h2 class="idea-title">${array[i].title}</h2>
+      <p class="idea-body">${array[i].body}</p>
+    </div>
+    <div class="comment-section">
+      <img id="comment-image" class="small-images" src="./assets/comment.svg">
+      <p class="comment-option">Comment</p>
+    </div>
+  </section>`
+  }
+}
+
+function displayFavorites(event){
+  favoriteIdeas = savedIdeas.filter(singleIdea => {
+    if(singleIdea.starred){
+      return singleIdea
+    }
+  })
+  return showIdeas(favoriteIdeas)
+}
+
 //--------------------------------> Data Model Functions ---------------------------->
 
 
