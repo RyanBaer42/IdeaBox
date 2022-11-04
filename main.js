@@ -29,8 +29,11 @@ saveButton.addEventListener('click', function(event) {
 titleInput.addEventListener('keyup', disableSaveButton);
 bodyInput.addEventListener('keyup', disableSaveButton);
 cardGrid.addEventListener('click', function(event) {
-  deleteCard(event);
-  favoriteIdea();
+  if (event.target.id === 'delete-img') {
+    deleteCard(event);
+  } else if (event.target.id === 'star-img') {
+    favoriteIdea();
+  }
 });
 
 
@@ -54,7 +57,7 @@ function displayUserIdea(event) {
   cardGrid.innerHTML += `
   <section class="new-ideas-card" id="${savedIdeas[i].id}">
     <div class="toolbar-images">
-      <img class="small-images" src="./assets/star.svg" id="star-img">
+      <img class="small-images" src="${starred(i)}" id="star-img">
       <img class="small-images delete" src="./assets/delete.svg" id="delete-img">
     </div>
     <div class="idea-title-body">
@@ -86,34 +89,29 @@ function disableSaveButton() {
 
 function deleteCard(event) {
   var deleteID = Number(event.target.parentNode.parentNode.id)
-    if (event.target.id === 'delete-img'){
-      for (var i = 0; i < savedIdeas.length; i++){
-        if (savedIdeas[i].id === deleteID){
+    for (var i = 0; i < savedIdeas.length; i++){
+      if (savedIdeas[i].id === deleteID) {
           savedIdeas.splice(i, 1);
         }
       }
-    }
   displayUserIdea();
 };
 
 function favoriteIdea() {
   var starID = Number(event.target.parentNode.parentNode.id);
-  console.log("1", starID);
-  if (event.target.id === 'star-img')
     for (var i = 0; i < savedIdeas.length; i++){
-      console.log(savedIdeas);
-      if (savedIdeas[i].id === starID){
-      console.log("2", savedIdeas);
+      if (savedIdeas[i].id === starID) {
         savedIdeas[i].updateIdea();
-      console.log("3", savedIdeas)
-        if (event.target.id === 'star-img' && event.target.src === "./assets/star.svg") {
-        event.target.src = "./assets/star-active.svg"
-      } else if (event.target.id === 'star-img' && event.target.src === "./assets/star-active.svg") {
-        event.target.src = "./assets/star.svg"
-      }
     }
+  } displayUserIdea();
+};
+
+function starred(index) {
+  if (savedIdeas[index].starred) {
+    return "./assets/star-active.svg"
   }
-}
+  return "./assets/star.svg"
+};
 //--------------------------------> Data Model Functions ---------------------------->
 
 
