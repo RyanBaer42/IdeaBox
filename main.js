@@ -141,8 +141,7 @@ function showIdeas(array){
       <p class="idea-body">${array[i].body}</p>
     </div>
     <div class="comment-section">
-      <img id="comment-image" class="small-images" src="./assets/comment.svg">
-      <p class="comment-option">Comment</p>
+      <p class="comment-option"></p>
     </div>
   </section>`
   }
