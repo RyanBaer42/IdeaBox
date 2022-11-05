@@ -1,11 +1,11 @@
 
 body {
+  background-color: #EAEAF4;
   display: flex;
   font-family: "Open Sans", "Light";
   margin: 0;
   height: 100%;
   width: 100%;
-  background-color: #EAEAF4;
 }
 
 /*----------- Side Bar Section ------------*/
@@ -13,7 +13,6 @@ body {
 .sidenav {
 background-color: #1F1F3D;
 height:100vh;
-padding-left: 2%;
 width: 25vw;
 }
 
@@ -21,6 +20,7 @@ width: 25vw;
 
 .ideabox-title {
 color: #E9E9F3;
+padding-left: 7%;
 }
 
 .line {
@@ -30,19 +30,23 @@ width: 100%;
 
 h4 {
 color: #BFBFDD;
+font-size: 18px;
+margin-top: 10%;
+padding-left: 7%;
 }
 
 .show-starred-button {
 background-color: #5356A4;
-border: 1px solid #353567;
+border: 2px solid #353567;
 color: #E9E9F3;
 cursor: pointer;
-font-size: 22px;
+font-size: 30px;
 font-weight: bold;
 margin-bottom: 7%;
+margin-left: 7%;
 margin-top: 5%;
 padding: 3%;
-width: 90%;
+width: 85%;
 }
 
 /*----------- Idea Input Section -----------*/
