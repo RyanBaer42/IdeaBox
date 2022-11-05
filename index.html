@@ -8,27 +8,27 @@
         <title>IdeaBox</title>
     </head>
     <body>
-        <aside class="sidenav">
+        <nav class="sidenav">
           <h2 class="ideabox-title">IdeaBox</h2>
           <div class="line"></div>
           <h4>Filter Starred Ideas</h4>
           <Button class="show-starred-button">Show Starred Ideas</Button>
           <div class="line"></div>
-        </aside>
+        </nav>
         <main>
             <section class="main-form-section">
                 <form class="main-form">
-                  <label for="title">Title</label>
+                  <label class="title-label" for="title">Title</label>
                   <input class="input-title" type="text" name="title" id="title">
-                  <label for="body">Body</label>
-                  <input class="input-body" type="text" name="body" id="body">
+                  <label class="body-label" for="body">Body</label>
+                  <textarea class="input-body" type="text" name="body" id="body"></textarea>
                   <Button class="save-button">Save</Button>
                   <div class="search-ideas-line">
                     <div class="icon-box">
                       <img class="search-icon" src="./assets/search.svg">
                     </div>
                     <label class="search-line"></label>
-                    <input class="input-search" type="text" id="search-ideas-input-line" placeholder="Search Ideas">
+                    <input class="input-search" type="text" id="search-ideas-input-line" placeholder="Search ideas">
                   </div>
                 </form>
             </section>
