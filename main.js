@@ -1,5 +1,8 @@
+//--------------------------------> Global Variables ------------------------------->
+
 var savedIdeas = [];
 var favoriteIdeas = [];
+var filteredIdeas = [];
 var newIdea = new Idea();
 var showState = "all";
 
@@ -12,10 +15,10 @@ var titleInput = document.querySelector('.input-title');
 var bodyInput = document.querySelector('.input-body');
 var cardGrid = document.querySelector('.card-grid');
 var saveButton = document.querySelector('.save-button');
-saveButton.disabled = true;
 var showStarredIdeasButton = document.querySelector('.show-starred-button')
 var searchBar = document.querySelector('.input-search')
 
+saveButton.disabled = true;
 
 
 
@@ -27,34 +30,36 @@ var searchBar = document.querySelector('.input-search')
 saveButton.addEventListener('click', function() {
   event.preventDefault();
   createUserIdea();
-  displayUserIdea();
-  console.log('savedIdeas', savedIdeas)
-  console.log('favoriteIdeas',favoriteIdeas)
+  showStarredIdeasButton.innerText = "Show Starred Ideas"
+  showState = "all"
+  showIdeas(savedIdeas)
+  clearForm()
+  saveButton.disabled = true;
 });
+
 titleInput.addEventListener('keyup', disableSaveButton);
 bodyInput.addEventListener('keyup', disableSaveButton);
+
 cardGrid.addEventListener('click', function() {
   if (event.target.id === 'delete-img' && showState === "all") {  
     deleteCard(favoriteIdeas);
     deleteCard(savedIdeas);
-    showIdeas(savedIdeas)
-    console.log('savedIdeas', savedIdeas)
-    console.log('favoriteIdeas',favoriteIdeas)
-
+    showIdeas(savedIdeas);
   } else if (event.target.id === 'delete-img' && showState === "favorites"){
     deleteCard(favoriteIdeas);
     deleteCard(savedIdeas);
-    showIdeas(favoriteIdeas)
-    console.log('savedIdeas', savedIdeas)
-    console.log('favoriteIdeas',favoriteIdeas)
+    showIdeas(favoriteIdeas);
   }
-    else if (event.target.id === 'star-img') {
-    favoriteIdea();
-    console.log('savedIdeas', savedIdeas)
-    console.log('favoriteIdeas',favoriteIdeas)
+    else if (event.target.id === 'star-img' && showState === "all") {
+    favoriteIdea(savedIdeas);
+  } else if (event.target.id === 'star-img' && showState === "favorites"){
+    favoriteIdea(favoriteIdeas)
+    displayFavorites()
   }
 });
-showStarredIdeasButton.addEventListener('click', function(event){
+
+showStarredIdeasButton.addEventListener('click', function(){
+  searchBar.value = ""
   if(event.target.innerText === "Show Starred Ideas"){
     event.target.innerText = "Show All Ideas"
     showState = "favorites"
@@ -65,32 +70,22 @@ showStarredIdeasButton.addEventListener('click', function(event){
     showIdeas(savedIdeas)
   }
 });
+
 searchBar.addEventListener('keyup', function(){
   if(showState === "all"){
     filterIdeas(savedIdeas);
   } else {
     filterIdeas(favoriteIdeas)
   }
-
 })
 
-
-
-
-
-//----------------------------------> Dom Functions --------------------------------->
+//---------------------------------> functions -------------------------------------->
 
 function createUserIdea() {
   var userTitle = titleInput.value;
   var userBody = bodyInput.value;
   newIdea = new Idea(userTitle, userBody);
   savedIdeas.push(newIdea);
-};
-
-function displayUserIdea() {
-  showIdeas(savedIdeas)
-  clearForm();
-  saveButton.disabled = true;
 };
 
 function clearForm() {
@@ -116,13 +111,13 @@ function deleteCard(array) {
       
 };
 
-function favoriteIdea() {
+function favoriteIdea(array) {
   var starID = Number(event.target.parentNode.parentNode.id);
     for (var i = 0; i < savedIdeas.length; i++){
       if (savedIdeas[i].id === starID) {
         savedIdeas[i].updateIdea();
     }
-  } displayUserIdea();
+  } showIdeas(array);
 };
 
 function starred(array, index) {
@@ -154,11 +149,6 @@ function showIdeas(array){
 }
 
 function displayFavorites(){
-  // favoriteIdeas = savedIdeas.filter(singleIdea => {
-  //   if(singleIdea.starred){
-  //     return singleIdea
-  //   }
-  // })
   favoriteIdeas = []
   for (var i =0;i<savedIdeas.length;i++){
     if(savedIdeas[i].starred){
@@ -169,23 +159,14 @@ function displayFavorites(){
 }
 
 function filterIdeas(array){
-  var filteredIdeas = array.filter(singleIdea => {
-    var bodyText = singleIdea.body.toLowerCase()
-    var titleText = singleIdea.title.toLowerCase()
+  filteredIdeas = []
+  for(var i = 0;i<array.length;i++){
+  var bodyText = array[i].body.toLowerCase()
+  var titleText = array[i].title.toLowerCase()
     if(bodyText.includes(searchBar.value.toLowerCase()) || titleText.includes(searchBar.value.toLowerCase())){
-      return singleIdea
+        filteredIdeas.push(array[i])
     }
-  })
-  return showIdeas(filteredIdeas)
+  }
+  showIdeas(filteredIdeas)
 }
 
-//--------------------------------> Data Model Functions ---------------------------->
-
-
-
-
-
-
-
-
-//---------------------------------> Utility Functions ------------------------------>

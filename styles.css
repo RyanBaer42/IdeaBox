@@ -1,199 +1,204 @@
 
 body {
-    display: flex;
-    font-family: "Open Sans", "Light";
-    margin: 0;
+  display: flex;
+  font-family: "Open Sans", "Light";
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #EAEAF4;
 }
 
 /*----------- Side Bar Section ------------*/
 
 .sidenav {
-  background-color: #1F1F3D;
-  height: 100vh;
-  padding-left: 2%;
-  width: 25vw;
+background-color: #1F1F3D;
+height:100vh;
+padding-left: 2%;
+width: 25vw;
 }
 
 /*Do we need to style h2? Can we just add it to h4?*/
 
 .ideabox-title {
-  color: #E9E9F3;
+color: #E9E9F3;
 }
 
 .line {
-  border-bottom: 1px solid #353567;
-  width: 100%;
+border-bottom: 1px solid #353567;
+width: 100%;
 }
 
 h4 {
-  color: #BFBFDD;
+color: #BFBFDD;
 }
 
 .show-starred-button {
-  background-color: #5356A4;
-  border: 1px solid #353567;
-  color: #E9E9F3;
-  cursor: pointer;
-  font-size: 22px;
-  font-weight: bold;
-  margin-bottom: 7%;
-  margin-top: 5%;
-  padding: 3%;
-  width: 90%;
+background-color: #5356A4;
+border: 1px solid #353567;
+color: #E9E9F3;
+cursor: pointer;
+font-size: 22px;
+font-weight: bold;
+margin-bottom: 7%;
+margin-top: 5%;
+padding: 3%;
+width: 90%;
 }
 
 /*----------- Idea Input Section -----------*/
 
 main {
-  display: flex;
-  flex-direction: column;
-  width: 75vw;
+display: flex;
+flex-direction: column;
+width: 75vw;
 }
 
 .main-form {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  justify-content: space-evenly;
-  width: 60%;
+display: flex;
+flex-direction: column;
+height: 100%;
+justify-content: space-evenly;
+width: 60%;
 }
 
 .main-form-section {
-  height: 40%;
-  display: flex;
-  justify-content: center;
-  background-color: #A9AAD2;
-  border-left: 2px solid #EAEAF4;
+height: 40%;
+display: flex;
+justify-content: center;
+background-color: #A9AAD2;
+border-left: 2px solid #EAEAF4;
 }
 
 .input-title {
-  border: 2px solid #5356A4;
-  border-radius: 3px;
-  height: 5vh;
-  padding-left: 5%;
+border: 2px solid #5356A4;
+border-radius: 3px;
+height: 5vh;
+padding-left: 5%;
 }
 
 .input-body {
-  border: 2px solid #5356A4;
-  border-radius: 3px;
-  height: 10vh;
+border: 2px solid #5356A4;
+border-radius: 3px;
+height: 10vh;
 }
 
 .save-button {
-  border: 1px solid #5356A4;
-  border-radius: 3px;
-  background-color: #1F1F3D;
-  border-color: #5356A4;
-  color: #E9E9F3;
-  cursor: pointer;
-  font-weight: bold;
-  height: 5vh;
+border: 1px solid #5356A4;
+border-radius: 3px;
+background-color: #1F1F3D;
+border-color: #5356A4;
+color: #E9E9F3;
+cursor: pointer;
+font-weight: bold;
+height: 5vh;
 }
 
 .save-button:disabled {
-  background-color: #5356A4;
-  cursor: not-allowed;
+background-color: #5356A4;
+cursor: not-allowed;
 
 }
 
 .search-ideas-line {
-  border: 1px solid #5356A4;
-  border-radius: 3px;
-  display: flex;
-  flex-direction: row;
-  height: 5vh;
-  width: 100%;
+border: 1px solid #5356A4;
+border-radius: 3px;
+display: flex;
+flex-direction: row;
+height: 5vh;
+width: 100%;
 }
 
 .icon-box {
-  background-color: #353567;
-  height: 5vh;
-  width: 2.5vw;
-  display: flex;
-  align-items: center;
+background-color: #353567;
+height: 5vh;
+width: 2.5vw;
+display: flex;
+align-items: center;
 }
 
 .search-icon {
-  background-color: #353567;
-  height: 2.75vh;
-  padding: 1.5%;
-  width: 2vw;
+background-color: #353567;
+height: 2.75vh;
+padding: 1.5%;
+width: 2vw;
 }
 
 .input-search {
-  width: 100%;
+width: 100%;
 }
 
 /*----------- Idea Card Section ------------*/
 
 .new-ideas-section {
-  background-color: #EAEAF4;
-  display: flex;
-  flex-direction: column;
-  height: 60%;
-  justify-content: center;
+background-color: #EAEAF4;
+display: flex;
+flex-direction: column;
+height: 60%;
+justify-content: flex-start;
+overflow-y: auto;
 }
 
 .card-grid {
-  display: grid;
-  grid-gap: 20px;
-  grid-template-columns: repeat(3, 1fr);
-  padding: 20px;
+display: grid;
+grid-gap: 20px;
+grid-template-columns: repeat(3, 1fr);
+padding: 20px;
 }
 
 .new-ideas-card {
-  border: 1px solid #1F1F3D;
-  color: #1F1F3D;
-  display: flex;
-  flex-direction: column;
-  height: 25vh;
-  justify-content: space-between;
-  width: 15vw;
+border: 1px solid #1F1F3D;
+color: #1F1F3D;
+display: flex;
+flex-direction: column;
+height: 25vh;
+justify-content: space-between;
+width: 15vw;
 }
 
 .toolbar-images {
-  background-color: #1F1F3D;
-  display: flex;
-  flex-direction: row;
-  height: 3vh;
-  justify-content: space-between;
-  margin: 0;
-  width: 15vw;
+background-color: #1F1F3D;
+display: flex;
+flex-direction: row;
+height: 3vh;
+justify-content: space-between;
+margin: 0;
+width: 15vw;
 }
 
 .delete:hover {
-  content: url('./assets/delete-active.svg');
+content: url('./assets/delete-active.svg');
 }
 
 .small-images {
-  cursor: pointer;
-  display: flex;
-  height: 3vh;
-  justify-content: space-between;
-  margin: 0;
-  width: 3vw;
+cursor: pointer;
+display: flex;
+height: 3vh;
+justify-content: space-between;
+margin: 0;
+width: 3vw;
 }
 
 .idea-title-body {
-  background-color: #FFFFFF;
-  height: 17vh;
-  padding-left: 7%;
+background-color: #FFFFFF;
+height: 17vh;
+padding-left: 7%;
+overflow: auto;
 }
 
 .comment-section {
-  background-color: #5356A4;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  margin: 0;
+background-color: #5356A4;
+display: flex;
+flex-direction: row;
+justify-content: flex-start;
+margin: 0;
 }
 
 #comment-image {
-  padding-top: 3%;
+padding-top: 3%;
 }
 
 .comment-option {
-  color: #E9E9F3;
-  margin-top: 4%;
-  margin-bottom: 4%;
+color: #E9E9F3;
+margin-top: 4%;
+margin-bottom: 4%;
 }
