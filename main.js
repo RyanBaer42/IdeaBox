@@ -28,14 +28,30 @@ saveButton.addEventListener('click', function() {
   event.preventDefault();
   createUserIdea();
   displayUserIdea();
+  console.log('savedIdeas', savedIdeas)
+  console.log('favoriteIdeas',favoriteIdeas)
 });
 titleInput.addEventListener('keyup', disableSaveButton);
 bodyInput.addEventListener('keyup', disableSaveButton);
 cardGrid.addEventListener('click', function() {
-  if (event.target.id === 'delete-img') {
-    deleteCard(event);
-  } else if (event.target.id === 'star-img') {
+  if (event.target.id === 'delete-img' && showState === "all") {  
+    deleteCard(favoriteIdeas);
+    deleteCard(savedIdeas);
+    showIdeas(savedIdeas)
+    console.log('savedIdeas', savedIdeas)
+    console.log('favoriteIdeas',favoriteIdeas)
+
+  } else if (event.target.id === 'delete-img' && showState === "favorites"){
+    deleteCard(favoriteIdeas);
+    deleteCard(savedIdeas);
+    showIdeas(favoriteIdeas)
+    console.log('savedIdeas', savedIdeas)
+    console.log('favoriteIdeas',favoriteIdeas)
+  }
+    else if (event.target.id === 'star-img') {
     favoriteIdea();
+    console.log('savedIdeas', savedIdeas)
+    console.log('favoriteIdeas',favoriteIdeas)
   }
 });
 showStarredIdeasButton.addEventListener('click', function(event){
@@ -90,14 +106,14 @@ function disableSaveButton() {
   }
 };
 
-function deleteCard() {
+function deleteCard(array) {
   var deleteID = Number(event.target.parentNode.parentNode.id)
-    for (var i = 0; i < savedIdeas.length; i++){
-      if (savedIdeas[i].id === deleteID) {
-          savedIdeas.splice(i, 1);
+    for (var i = 0; i < array.length; i++){
+      if (array[i].id === deleteID) {
+          array.splice(i, 1);
         }
       }
-  displayUserIdea();
+      
 };
 
 function favoriteIdea() {
@@ -143,7 +159,7 @@ function displayFavorites(){
   //     return singleIdea
   //   }
   // })
-  // favoriteIdeas = []
+  favoriteIdeas = []
   for (var i =0;i<savedIdeas.length;i++){
     if(savedIdeas[i].starred){
       favoriteIdeas.push(savedIdeas[i])
