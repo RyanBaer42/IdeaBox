@@ -3,7 +3,6 @@ html {
   width: 100%;
 }
 
-
 body {
   background-color: #EAEAF4;
   display: flex;
@@ -16,129 +15,127 @@ body {
 /*----------- Side Bar Section ------------*/
 
 .sidenav {
-background-color: #1F1F3D;
-height: 100%;
-width: 25vw;
-position: fixed;
+  background-color: #1F1F3D;
+  height: 100%;
+  width: 25vw;
+  position: fixed;
 }
 
-/*Do we need to style h2? Can we just add it to h4?*/
-
 .ideabox-title {
-color: #E9E9F3;
-padding-left: 7%;
+  color: #E9E9F3;
+  padding-left: 7%;
 }
 
 .line {
-border-bottom: 1px solid #353567;
-width: 100%;
+  border-bottom: 1px solid #353567;
+  width: 100%;
 }
 
 h4 {
-color: #BFBFDD;
-font-size: 18px;
-margin-top: 10%;
-padding-left: 7%;
+  color: #BFBFDD;
+  font-size: 18px;
+  margin-top: 10%;
+  padding-left: 7%;
 }
 
 .show-starred-button {
-background-color: #5356A4;
-border: 2px solid #353567;
-color: #E9E9F3;
-cursor: pointer;
-font-size: 30px;
-font-weight: bold;
-margin-bottom: 7%;
-margin-left: 7%;
-margin-top: 5%;
-padding: 3%;
-width: 85%;
+  background-color: #5356A4;
+  border: 2px solid #353567;
+  color: #E9E9F3;
+  cursor: pointer;
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 7%;
+  margin-left: 7%;
+  margin-top: 5%;
+  padding: 3%;
+  width: 85%;
 }
 
 /*----------- Idea Input Section -----------*/
 
 main {
-margin-left: 25vw;
-display: flex;
-flex-direction: column;
-width: 75vw;
-height: 100%;
+  margin-left: 25vw;
+  display: flex;
+  flex-direction: column;
+  width: 75vw;
+  height: 100%;
 }
 
 .main-form {
-display: flex;
-flex-direction: column;
-height: 100%;
-width: 40%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 40%;
 }
 
 .main-form-section {
-height: 70vh;
-display: flex;
-justify-content: center;
-background-color: #A9AAD2;
-border-left: 2px solid #EAEAF4;
+  background-color: #A9AAD2;
+  border-left: 2px solid #EAEAF4;
+  height: 70vh;
+  display: flex;
+  justify-content: center;
 }
 
 .title-label {
   color: #1F1F3D;
   font-size: 25px;
   font-weight: bold;
-  padding-top: 10%;
   padding-bottom: 3%;
+  padding-top: 10%;
 }
 
 .input-title {
-border: 2px solid #5356A4;
-border-radius: 3px;
-color: #1F1F3D;
-height: 5vh;
-font-size: 35px;
-text-align: start;
+  border: 2px solid #5356A4;
+  border-radius: 3px;
+  color: #1F1F3D;
+  font-size: 35px;
+  height: 5vh;
+  text-align: start;
 }
 
 .body-label {
   color: #1F1F3D;
-  font-weight: bold;
   font-size: 25px;
-  padding-top: 7%;
+  font-weight: bold;
   padding-bottom: 3%;
+  padding-top: 7%;
 }
 
 .input-body {
-border: 2px solid #5356A4;
-border-radius: 3px;
-color: #1F1F3D;
-font-family: "Open Sans", "Light";
-font-size: 25px;
-height: 15vh;
+  border: 2px solid #5356A4;
+  border-radius: 3px;
+  color: #1F1F3D;
+  font-family: "Open Sans", "Light";
+  font-size: 25px;
+  height: 15vh;
 }
 
 .save-button {
-border: 2px solid #5356A4;
-border-radius: 3px;
-background-color: #1F1F3D;
-color: #E9E9F3;
-cursor: pointer;
-font-size: 25px;
-font-weight: bold;
-height: 7vh;
-margin-top: 7%;
+  background-color: #1F1F3D;
+  border: 2px solid #5356A4;
+  border-radius: 3px;
+  color: #E9E9F3;
+  cursor: pointer;
+  font-size: 25px;
+  font-weight: bold;
+  height: 7vh;
+  margin-top: 7%;
 }
 
 .save-button:disabled {
-background-color: #5356A4;
-cursor: not-allowed;
+  background-color: #5356A4;
+  cursor: not-allowed;
 }
 
 .search-ideas-line {
-border: 1px solid #5356A4;
-border-radius: 3px;
-display: flex;
-flex-direction: row;
-height: 7vh;
-margin-top: 7%;
-width: 100%;
+  border: 1px solid #5356A4;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: row;
+  height: 7vh;
+  margin-top: 7%;
+  width: 100%;
 }
 
 .input-search {
@@ -155,82 +152,85 @@ width: 100%;
 }
 
 .icon-box {
-background-color: #353567;
-height: 7vh;
-width: 4vw;
-display: flex;
-align-items: center;
-justify-content: center;
+  align-items: center;
+  background-color: #353567;
+  display: flex;
+  height: 7vh;
+  justify-content: center;
+  width: 4vw;
 }
 
 .search-icon {
-background-color: #353567;
-height: 5vh;
-padding: 1.5%;
-width: 2vw;
+  background-color: #353567;
+  height: 5vh;
+  padding: 1.5%;
+  width: 2vw;
 }
 
 .input-search {
-width: 100%;
+  width: 100%;
 }
 
 /*----------- Idea Card Section ------------*/
 
 .new-ideas-section {
-background-color: #EAEAF4;
-display: flex;
-flex-direction: column;
-height: 30%;
-justify-content: flex-start;
-/* overflow-y: auto; */
+  background-color: #EAEAF4;
+  display: flex;
+  flex-direction: column;
+  height: 30%;
+  justify-content: flex-start;
 }
 
 .card-grid {
-display: grid;
-grid-gap: 20px;
-grid-template-columns: repeat(3, 1fr);
-padding: 25px;
+  display: grid;
+  grid-gap: 3%;
+  grid-template-columns: repeat(3, 1fr);
+  padding-bottom: 3.5%;
+  padding-left: 2.5%;
+  padding-top: 2.5%;
 }
 
 .new-ideas-card {
-border: 2px solid #1F1F3D;
-color: #1F1F3D;
-display: flex;
-flex-direction: column;
-height: 43vh;
-justify-content: space-between;
-width: 21vw;
+  border: 2px solid #1F1F3D;
+  border-radius: 2px;
+  color: #1F1F3D;
+  display: flex;
+  flex-direction: column;
+  height: 43vh;
+  justify-content: space-between;
+  width: 21vw;
 }
 
 .toolbar-images {
-background-color: #1F1F3D;
-display: flex;
-flex-direction: row;
-height: 3vh;
-justify-content: space-between;
-margin: 0;
-width: 100%;
-height: 13%;
+  background-color: #1F1F3D;
+  display: flex;
+  flex-direction: row;
+  height: 13%;
+  justify-content: space-between;
+  margin: 0;
+  width: 100%;
 }
 
 .delete:hover {
-content: url('./assets/delete-active.svg');
+  content: url('./assets/delete-active.svg');
 }
 
 .small-images {
-cursor: pointer;
-display: flex;
-height: 5vh;
-justify-content: space-between;
-margin: 0;
-width: 3vw;
+  cursor: pointer;
+  display: flex;
+  height: 5vh;
+  justify-content: space-between;
+  margin: 0;
+  width: 3vw;
 }
 
 .idea-title-body {
-background-color: #FFFFFF;
-height: 82%;
-padding-left: 7%;
-overflow: auto;
+  background-color: #FFFFFF;
+  height: 82%;
+  overflow: auto;
+  padding-left: 7%;
+  padding-right: 7%;
+  overflow-wrap: break-word;
 }
 
 .idea-title {
@@ -243,17 +243,17 @@ overflow: auto;
 }
 
 .comment-section {
-background-color: #5356A4;
-border-top: 2px solid #1F1F3D;
-display: flex;
-flex-direction: row;
-justify-content: flex-start;
-margin: 0;
-height: 5vh;
+  background-color: #5356A4;
+  border-top: 2px solid #1F1F3D;
+  display: flex;
+  flex-direction: row;
+  height: 5vh;
+  justify-content: flex-start;
+  margin: 0;  
 }
 
 .comment-option {
-color: #E9E9F3;
-margin-top: 4%;
-margin-bottom: 4%;
+  color: #E9E9F3;
+  margin-bottom: 4%;
+  margin-top: 4%;
 }
