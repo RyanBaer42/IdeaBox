@@ -22,6 +22,7 @@ Alternatively:
 
 ###Preview of App:
 
+![ideabox](https://user-images.githubusercontent.com/108428451/200425330-da8582fa-a874-4a02-aeb2-94939566e16d.gif)
 
 ###Context:
 Bob, Ryan, Blanche, and Josephine all worked on this project for six days. We are all in our fourth week in our first module in Turing. 
